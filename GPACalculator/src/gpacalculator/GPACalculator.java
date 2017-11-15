@@ -9,13 +9,13 @@ package gpacalculator;
  *
  * @author Iman
  */
-public class GPACalculator {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class GPACalculator {
+    
+    public static void main(String[] args) 
+    {
+        MenuScreen menu = new MenuScreen();
+        menu.setVisible(true);
     }
     
 }
