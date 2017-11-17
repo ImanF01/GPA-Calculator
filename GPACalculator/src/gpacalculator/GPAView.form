@@ -29,8 +29,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPaneGrades" min="-2" pref="610" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabelWeightOption" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jRadioButtonUnweighted" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jRadioButtonWeighted" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonEdit" min="-2" max="-2" attributes="0"/>
@@ -38,17 +51,11 @@
                       <Component id="jButtonRemove" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonClear" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPaneGrades" min="-2" pref="610" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jLabelWeightOption" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButtonUnweighted" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButtonWeighted" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabelTotalGPA" min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,6 +76,7 @@
                   <Component id="jButtonEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRemove" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonClear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelTotalGPA" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="212" max="32767" attributes="0"/>
           </Group>
@@ -162,6 +170,11 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonClearActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTotalGPA">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Total GPA"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
