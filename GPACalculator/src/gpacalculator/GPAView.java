@@ -30,13 +30,19 @@ public class GPAView extends javax.swing.JFrame {
     private JCheckBox jCheckBoxHonors = new JCheckBox();
     
     public GPAView() {
+        // Initialize JComponents
         initComponents();
         
+        // Format columns of jTableGrades
         jTableGrades.getColumnModel().getColumn(0).setResizable(false);
         jTableGrades.getColumnModel().getColumn(0).setMinWidth(jTableGrades.getWidth() / 2);
         jTableGrades.getColumnModel().getColumn(1).setResizable(false);
         jTableGrades.getColumnModel().getColumn(2).setResizable(false);
         jTableGrades.getColumnModel().getColumn(3).setResizable(false);
+    }
+    
+    private void updateGPA() {
+        jLabelTotalGPA.setText(String.format("Total GPA: %4.02f", controller.calculateGPA()));
     }
 
     /**
@@ -118,7 +124,7 @@ public class GPAView extends javax.swing.JFrame {
             }
         });
 
-        jLabelTotalGPA.setText("Total GPA");
+        jLabelTotalGPA.setText("Total GPA:  NaN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,16 +134,6 @@ public class GPAView extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPaneGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelWeightOption)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonUnweighted)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButtonWeighted)))
-                        .addGap(57, 57, 57))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonAdd)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEdit)
@@ -146,8 +142,15 @@ public class GPAView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonClear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelTotalGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73))))
+                        .addComponent(jLabelTotalGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPaneGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelWeightOption)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonUnweighted)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonWeighted)))
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,60 +176,87 @@ public class GPAView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveActionPerformed
-        // TODO add your handling code here:
+        // Get selected row index
         int selectedRow = jTableGrades.getSelectedRow();
         
+        // Return if nothing is selected
         if (selectedRow == -1)
             return;
         
-        controller.removeGrade(jTableGrades.getSelectedRow());
+        // Confirm remove
+        int i = JOptionPane.showOptionDialog(this, "Remove selected Grade?", "Confirm Remove Grade", 
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"Confirm", "Cancel"}, null);
+        
+        // Remove grade at selected row index and update GPA
+        if (i == JOptionPane.OK_OPTION)
+            controller.removeGrade(jTableGrades.getSelectedRow());
+        updateGPA();
     }//GEN-LAST:event_jButtonRemoveActionPerformed
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
-        // TODO add your handling code here:
-        controller.clearData();
+        // Confirm clear all
+        int i = JOptionPane.showOptionDialog(this, "Clear All?", "Confirm Clear All", 
+                    JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"Confirm", "Cancel"}, null);
+        
+        // Clear all grades if user confirms
+        if (i == JOptionPane.OK_OPTION)
+            controller.clearData();
+        
+        // Update GPA
+        updateGPA();
     }//GEN-LAST:event_jButtonClearActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        // TODO add your handling code here:
+        // Components for Add Form dialog
         JLabel[] jLabelsAddForm = {new JLabel("Class Name"), new JLabel("Grade"), new JLabel("Honors/AP?")};
         JTextField jTextFieldClass = new JTextField();
         JComboBox jComboBoxGrade = new JComboBox(Grade.LETTER_GRADES);
         JCheckBox jCheckBoxHonors = new JCheckBox();
         
+        // Receive user input via dialog
         int i = JOptionPane.showOptionDialog(this, new Object[]{jLabelsAddForm[0], jTextFieldClass, jLabelsAddForm[1], jComboBoxGrade, jLabelsAddForm[2], jCheckBoxHonors},
                                             "Add New Grade", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Add", "Cancel"}, null);
         
+        // Add grade if user confirms
         if (i == JOptionPane.OK_OPTION)
             controller.addGrade(jTextFieldClass.getText(), jComboBoxGrade.getItemAt(jComboBoxGrade.getSelectedIndex()).toString(), jCheckBoxHonors.isSelected());
+        
+        // Scroll to bottom to make new grade visible and update GPA
         jTableGrades.scrollRectToVisible(jTableGrades.getCellRect(jTableGrades.getRowCount() - 1, 0, true));
+        updateGPA();
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jRadioButtonUnweightedItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonUnweightedItemStateChanged
-        // TODO add your handling code here:
+        // Changes weighted status to false and updates GPA
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             controller.setWeightedStatus(false);
         }
+        updateGPA();
     }//GEN-LAST:event_jRadioButtonUnweightedItemStateChanged
 
     private void jRadioButtonWeightedItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonWeightedItemStateChanged
-        // TODO add your handling code here:
+        // Changes weighted status to true and updates GPA
         if (evt.getStateChange() == ItemEvent.SELECTED) {
             controller.setWeightedStatus(true);
         }
+        updateGPA();
     }//GEN-LAST:event_jRadioButtonWeightedItemStateChanged
 
     private void jButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditActionPerformed
-        // TODO add your handling code here:
-        JLabel[] jLabelsAddForm = {new JLabel("Class Name"), new JLabel("Grade"), new JLabel("Honors/AP?")};
+        // Components for Edit Form dialog
+        JLabel[] jLabelsEditForm = {new JLabel("Class Name"), new JLabel("Grade"), new JLabel("Honors/AP?")};
         JTextField jTextFieldClass;
         JComboBox jComboBoxGrade = new JComboBox(Grade.LETTER_GRADES);
         JCheckBox jCheckBoxHonors;
+        
+        // Get selected row index
         int selectedRow = jTableGrades.getSelectedRow();
         
+        // Return if nothing is selected
         if (selectedRow == -1)
             return;
         
+        // Attempt to get existing values, return if not possible
         try {
             jTextFieldClass = new JTextField(controller.getClassNameAt(selectedRow));
             jComboBoxGrade.setSelectedItem(controller.getLetterGradeAt(selectedRow));
@@ -235,12 +265,17 @@ public class GPAView extends javax.swing.JFrame {
             return;
         }
         
-        int i = JOptionPane.showOptionDialog(this, new Object[]{jLabelsAddForm[0], jTextFieldClass, jLabelsAddForm[1], jComboBoxGrade, jLabelsAddForm[2], jCheckBoxHonors},
+        // If existing data is retrieved, create Edit Form dialog and retrieve user input
+        int i = JOptionPane.showOptionDialog(this, new Object[]{jLabelsEditForm[0], jTextFieldClass, jLabelsEditForm[1], jComboBoxGrade, jLabelsEditForm[2], jCheckBoxHonors},
                                             "Edit Existing Grade", JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Confirm"}, "Confirm");
         
+        // If user confirms, edit existing grade
         if (i == JOptionPane.OK_OPTION) {
             controller.editGradeAt(selectedRow, jTextFieldClass.getText(), jComboBoxGrade.getItemAt(jComboBoxGrade.getSelectedIndex()).toString(), jCheckBoxHonors.isSelected());
         }
+        
+        // Update GPA
+        updateGPA();
     }//GEN-LAST:event_jButtonEditActionPerformed
 
 

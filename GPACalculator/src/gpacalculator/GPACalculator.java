@@ -17,7 +17,7 @@ public class GPACalculator {
     
     public static void main(String[] args) 
     {
-        MenuScreen menu = new MenuScreen();
-        menu.setVisible(true);
+        GPAController controller = new GPAController();
+        controller.startApplication();
     }
 }

@@ -67,11 +67,39 @@ public class GPATableModel extends AbstractTableModel{
         return isWeighted;
     }
     
-    public Grade getGradeAt(int row) {
+    private Grade getGradeAt(int row) {
         if (row < 0 || row > grades.size())
             throw new IllegalArgumentException("Row out of bounds");
         
         return grades.get(row);
+    }
+    
+    public String getClassNameAt(int row) {
+        if (row < 0 || row > grades.size())
+            throw new IllegalArgumentException("Row out of bounds");
+        
+        return getGradeAt(row).getClassName();
+    }
+    
+    public String getLetterGradeAt(int row) {
+        if (row < 0 || row > grades.size())
+            throw new IllegalArgumentException("Row out of bounds");
+        
+        return getGradeAt(row).getLetterGrade();
+    }
+    
+    public double getGradePointAt(int row) {
+        if (row < 0 || row > grades.size())
+            throw new IllegalArgumentException("Row out of bounds");
+        
+        return getWeightedStatus() && getHonorsAt(row) ? getGradeAt(row).getGradePoint() + 1 : getGradeAt(row).getGradePoint();
+    }
+    
+    public boolean getHonorsAt(int row) {
+        if (row < 0 || row > grades.size())
+            throw new IllegalArgumentException("Row out of bounds");
+        
+        return getGradeAt(row).getHonors();
     }
     
     public void addGrade(String className, String letterGrade, boolean isHonors) {
@@ -108,4 +136,12 @@ public class GPATableModel extends AbstractTableModel{
         fireTableDataChanged();
     }
     
+    public double calculateGPA() {
+        double totalGP = 0;
+        for (int i = 0; i < getRowCount(); i++) {
+                totalGP += getGradePointAt(i);
+        }
+        
+        return totalGP / getRowCount();
+    }
 }

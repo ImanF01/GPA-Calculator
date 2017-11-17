@@ -15,9 +15,7 @@ public class GPAController {
     private GPATableModel gpaTable = new GPATableModel();
     
     public void startApplication() {
-        GPAView mainFrame = new GPAView();
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setVisible(true); 
+        new MenuScreen().setVisible(true);
     }
     
     public GPATableModel getGPATable() {
@@ -26,7 +24,7 @@ public class GPAController {
     
     public String getClassNameAt(int row) {
         try {
-            return gpaTable.getGradeAt(row).getClassName();
+            return gpaTable.getClassNameAt(row);
         } catch (Exception e) {
             System.out.println("GPAController.getClassNameAt(int row) : Invalid row entered");
         }
@@ -35,7 +33,7 @@ public class GPAController {
     
     public String getLetterGradeAt(int row) {
         try {
-            return gpaTable.getGradeAt(row).getLetterGrade();
+            return gpaTable.getLetterGradeAt(row);
         } catch (Exception e) {
             System.out.println("GPAController.getLetterGradeAt(int row) : Invalid row entered");
         }
@@ -44,7 +42,7 @@ public class GPAController {
     
     public boolean getHonorsAt(int row) {
         try {
-            return gpaTable.getGradeAt(row).getHonors();
+            return gpaTable.getHonorsAt(row);
         } catch (Exception e) {
             System.out.println("GPAController.getHonorsAt(int row) : Invalid row entered");
         }
@@ -89,5 +87,14 @@ public class GPAController {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+    
+    public double calculateGPA() {
+        try {
+            return gpaTable.calculateGPA();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return -1;
     }
 }
