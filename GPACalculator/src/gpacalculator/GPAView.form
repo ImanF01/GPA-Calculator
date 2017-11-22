@@ -35,8 +35,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonEdit" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonRemove" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jButtonClear" min="-2" max="-2" attributes="0"/>
@@ -83,7 +81,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRemove" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonClear" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTotalGPA" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -155,14 +152,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonEdit">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Edit Grade"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonRemove">

@@ -15,7 +15,7 @@ public class GPAController {
     private GPATableModel gpaTable = new GPATableModel();
     
     public void startApplication() {
-        new MenuScreen().setVisible(true);
+        new MenuScreen(this).setVisible(true);
     }
     
     public GPATableModel getGPATable() {

@@ -7,6 +7,7 @@ package gpacalculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JCheckBox;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -53,9 +54,47 @@ public class GPATableModel extends AbstractTableModel{
             case 2:
                 return getWeightedStatus() && grade.getHonors() ? String.format("%.2f", grade.getGradePoint() + 1) : String.format("%.2f", grade.getGradePoint()) ;
             case 3:
-                return grade.getHonors() ? "Yes" : "No";        
+                return grade.getHonors();
         }
         return null;
+    }
+    
+    @Override
+    public void setValueAt(Object object, int row, int column) {
+        if (row < 0 || row > grades.size())
+            throw new IllegalArgumentException("Row out of bounds");
+        
+        // Safe casts due to controlled user edit
+        switch (column) {
+            case 0:
+                grades.get(row).setClassName((String) object);
+                break;
+            case 1:
+                grades.get(row).setLetterGrade((String) object);
+                break;
+            case 3:
+                grades.get(row).setHonors((Boolean) object);
+                break;
+        }
+        fireTableDataChanged();
+    }
+    
+    @Override
+    public Class getColumnClass(int column) {
+        return getValueAt(0, column).getClass();
+    }
+    
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        switch (column) {
+            case 0:
+            case 1:
+            case 3: 
+                return true;
+            case 4:
+                return false;
+        }
+        return false;
     }
     
     public void setWeightedStatus(boolean isWeighted) {

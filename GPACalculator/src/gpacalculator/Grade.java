@@ -34,7 +34,7 @@ public class Grade {
     private String className;
     private String letterGrade;
     private double gradePoint;
-    private boolean isHonors;
+    private Boolean isHonors;
     
     // Default Constructor (should only be called for testing purposes)
     public Grade() {
@@ -52,12 +52,12 @@ public class Grade {
     }
     
     // Constructor that allows user to specifiy whether a course is honors and affected by weighted GPA
-    public Grade(String letterGrade, boolean isHonors) {
+    public Grade(String letterGrade, Boolean isHonors) {
         this("Unspecified Class", letterGrade, isHonors);
     }
     
     // Full Argument Constructor
-    public Grade(String className, String letterGrade, boolean isHonors) {
+    public Grade(String className, String letterGrade, Boolean isHonors) {
         setClassName(className);
         setLetterGrade(letterGrade);
         setGradePoint();
@@ -105,12 +105,12 @@ public class Grade {
     }
     
     // Sets isHonors (whether the class is honors or not)
-    public void setHonors(boolean isHonors) {
+    public void setHonors(Boolean isHonors) {
         this.isHonors = isHonors;
     }
     
     // Gets isHonors
-    public boolean getHonors() {
+    public Boolean getHonors() {
         return isHonors;
     }
     

@@ -10,11 +10,14 @@ package gpacalculator;
  * @author Iman
  */
 public class MenuScreen extends javax.swing.JFrame {
+    
+    private GPAController controller;
 
     /**
      * Creates new form MenuScreen
      */
-    public MenuScreen() {
+    public MenuScreen(GPAController controller) {
+        this.controller = controller;
         initComponents();
     }
 
@@ -71,7 +74,7 @@ public class MenuScreen extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-        new GPAView().setVisible(true);
+        new GPAView(controller).setVisible(true);
         
         /*
         Uncomment if you want to take a look
