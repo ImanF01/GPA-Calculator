@@ -31,39 +31,54 @@
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonEdit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonRemove" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonClear" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabelTotalGPA" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonEdit" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonRemove" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonClear" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabelTotalGPA" min="-2" pref="115" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPaneGrades" min="-2" pref="610" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPaneGrades" min="-2" pref="610" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabelWeightOption" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jRadioButtonUnweighted" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jRadioButtonWeighted" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonHome" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelWeightOption" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButtonUnweighted" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jRadioButtonWeighted" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelWeightOption" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonUnweighted" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonWeighted" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonHome" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPaneGrades" min="-2" pref="131" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -73,7 +88,7 @@
                   <Component id="jButtonClear" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTotalGPA" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="212" max="32767" attributes="0"/>
+              <EmptySpace pref="196" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -169,6 +184,11 @@
     <Component class="javax.swing.JLabel" name="jLabelTotalGPA">
       <Properties>
         <Property name="text" type="java.lang.String" value="Total GPA:  NaN"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonHome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Home"/>
       </Properties>
     </Component>
   </SubComponents>
