@@ -128,6 +128,11 @@ public class GPAView extends javax.swing.JFrame {
         jLabelTotalGPA.setText("Total GPA:  NaN");
 
         jButtonHome.setText("Home");
+        jButtonHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -290,6 +295,12 @@ public class GPAView extends javax.swing.JFrame {
         // Update GPA
         updateGPA();
     }//GEN-LAST:event_jButtonEditActionPerformed
+
+    private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
+        //Goes to MenuScreen 
+        this.dispose();
+        new MenuScreen().setVisible(true); 
+    }//GEN-LAST:event_jButtonHomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
