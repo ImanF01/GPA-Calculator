@@ -16,6 +16,11 @@ public class MenuScreen extends javax.swing.JFrame {
     /**
      * Creates new form MenuScreen
      */
+    
+    public MenuScreen() {
+        initComponents();
+    }
+    
     public MenuScreen(GPAController controller) {
         this.controller = controller;
         initComponents();
