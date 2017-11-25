@@ -31,18 +31,27 @@ public class MenuScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonCalculateGPA = new javax.swing.JButton();
+        jButtonCalculateFinalGrade = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel1.setText("GPA Calculator");
 
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jButton1.setText("Calculate GPA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCalculateGPA.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jButtonCalculateGPA.setText("Calculate GPA");
+        jButtonCalculateGPA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonCalculateGPAActionPerformed(evt);
+            }
+        });
+
+        jButtonCalculateFinalGrade.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jButtonCalculateFinalGrade.setText("Calculate Final Grade");
+        jButtonCalculateFinalGrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCalculateFinalGradeActionPerformed(evt);
             }
         });
 
@@ -55,8 +64,10 @@ public class MenuScreen extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(84, 84, 84))
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jButton1)
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonCalculateFinalGrade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCalculateGPA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -65,14 +76,16 @@ public class MenuScreen extends javax.swing.JFrame {
                 .addGap(81, 81, 81)
                 .addComponent(jLabel1)
                 .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addComponent(jButtonCalculateGPA)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCalculateFinalGrade)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonCalculateGPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateGPAActionPerformed
         this.dispose();
         new GPAView(controller).setVisible(true);
         
@@ -80,7 +93,12 @@ public class MenuScreen extends javax.swing.JFrame {
         Uncomment if you want to take a look
         new GPAview().setVisible(true);
         */
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonCalculateGPAActionPerformed
+
+    private void jButtonCalculateFinalGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateFinalGradeActionPerformed
+        this.dispose();
+        new FinalGradeView().setVisible(true);
+    }//GEN-LAST:event_jButtonCalculateFinalGradeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,7 +136,8 @@ public class MenuScreen extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonCalculateFinalGrade;
+    private javax.swing.JButton jButtonCalculateGPA;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
