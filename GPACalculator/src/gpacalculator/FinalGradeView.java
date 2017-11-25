@@ -45,16 +45,23 @@ public class FinalGradeView extends javax.swing.JFrame {
 
         jLabelFinalWeight.setText("Final Weight");
 
-        jTextFieldCurrentGrade.setText("jTextField1");
         jTextFieldCurrentGrade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCurrentGradeActionPerformed(evt);
             }
         });
 
-        jTextFieldDesiredGrade.setText("jTextField2");
+        jTextFieldDesiredGrade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDesiredGradeActionPerformed(evt);
+            }
+        });
 
-        jTextFieldFinalWeight.setText("jTextField3");
+        jTextFieldFinalWeight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFinalWeightActionPerformed(evt);
+            }
+        });
 
         jButtonCalculate.setText("Calculate");
         jButtonCalculate.addActionListener(new java.awt.event.ActionListener() {
@@ -72,28 +79,29 @@ public class FinalGradeView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(99, 99, 99)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelCurrentGrade)
-                        .addGap(49, 49, 49))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabelFinalWeight)
-                            .addComponent(jLabelDesiredGrade))
-                        .addGap(50, 50, 50)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldFinalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCurrentGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDesiredGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 124, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextFieldFinalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabelDesiredGrade)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTextFieldDesiredGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelCurrentGrade)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldCurrentGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
+                        .addGap(152, 152, 152)
                         .addComponent(jButtonCalculate))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
+                        .addGap(87, 87, 87)
                         .addComponent(jLabelGradeNeeded)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,14 +113,14 @@ public class FinalGradeView extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDesiredGrade)
-                    .addComponent(jTextFieldFinalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldDesiredGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFinalWeight)
-                    .addComponent(jTextFieldDesiredGrade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jTextFieldFinalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addComponent(jButtonCalculate)
-                .addGap(32, 32, 32)
+                .addGap(28, 28, 28)
                 .addComponent(jLabelGradeNeeded)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
@@ -125,8 +133,29 @@ public class FinalGradeView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCurrentGradeActionPerformed
 
     private void jButtonCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateActionPerformed
-        jLabelGradeNeeded.setText("Hi");
+        String desiredGrade = jTextFieldDesiredGrade.getText();
+        String currentGrade = jTextFieldCurrentGrade.getText();
+        String finalWeight = jTextFieldFinalWeight.getText();
+        
+        double dGrade = Double.parseDouble(desiredGrade) / 100.0;
+        double cGrade = Double.parseDouble(currentGrade) / 100.0;
+        double fWeight = Double.parseDouble(finalWeight) / 100.0;
+        System.out.print(dGrade);
+        System.out.print(cGrade);
+        System.out.print(fWeight);
+        double grade = (dGrade - ((1-fWeight) * cGrade) ) / fWeight;
+        System.out.print(grade);
+                
+        jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f", grade * 100));
     }//GEN-LAST:event_jButtonCalculateActionPerformed
+
+    private void jTextFieldFinalWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFinalWeightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFinalWeightActionPerformed
+
+    private void jTextFieldDesiredGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDesiredGradeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDesiredGradeActionPerformed
 
     /**
      * @param args the command line arguments
