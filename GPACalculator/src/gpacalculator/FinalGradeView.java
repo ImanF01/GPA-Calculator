@@ -5,19 +5,29 @@
  */
 package gpacalculator;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Iman
  */
 public class FinalGradeView extends javax.swing.JFrame {
+    
+    private GPAController controller;
 
     /**
      * Creates new form FinalGradeView
      */
     
     public FinalGradeView() {
+        controller = new GPAController();
         initComponents();
         
+    }
+    
+    public FinalGradeView(GPAController controller) {
+        this.controller = controller;
+        initComponents();
     }
     
     /**
@@ -172,16 +182,26 @@ public class FinalGradeView extends javax.swing.JFrame {
         String currentGrade = jTextFieldCurrentGrade.getText();
         String finalWeight = jTextFieldFinalWeight.getText();
         
-        double dGrade = Double.parseDouble(desiredGrade) / 100.0;
-        double cGrade = Double.parseDouble(currentGrade) / 100.0;
-        double fWeight = Double.parseDouble(finalWeight) / 100.0;
-        System.out.print(dGrade);
-        System.out.print(cGrade);
-        System.out.print(fWeight);
-        double grade = (dGrade - ((1-fWeight) * cGrade) ) / fWeight;
-        System.out.print(grade);
-                
-        jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f", grade * 100));
+        try {
+            double dGrade = Double.parseDouble(desiredGrade) / 100.0;
+            double cGrade = Double.parseDouble(currentGrade) / 100.0;
+            double fWeight = Double.parseDouble(finalWeight) / 100.0;
+            System.out.print(dGrade);
+            System.out.print(cGrade);
+            System.out.print(fWeight);
+            double grade = (dGrade - ((1-fWeight) * cGrade) ) / fWeight;
+            System.out.print(grade);
+
+            jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f", grade * 100));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, String.format("Missing the following fields:%n%n%s%s%s",
+                    desiredGrade.isEmpty() ? "Desired Grade\n" : "",
+                    currentGrade.isEmpty() ? "Current Grade\n" : "",
+                    finalWeight.isEmpty() ? "Final Weight\n" : ""
+                    )
+                , "Missing Input", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonCalculateActionPerformed
 
     private void jTextFieldFinalWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFinalWeightActionPerformed
@@ -194,7 +214,7 @@ public class FinalGradeView extends javax.swing.JFrame {
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         this.dispose();
-        new MenuScreen().setVisible(true);
+        new MenuScreen(controller).setVisible(true);
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     /**

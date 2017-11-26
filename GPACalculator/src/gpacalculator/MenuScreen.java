@@ -18,6 +18,7 @@ public class MenuScreen extends javax.swing.JFrame {
      */
     
     public MenuScreen() {
+        controller = new GPAController();
         initComponents();
         
     }
@@ -52,7 +53,7 @@ public class MenuScreen extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Lucida Console", 0, 11)); // NOI18N
-        jLabel2.setText("A tool for to help students meet their academic goals");
+        jLabel2.setText("A tool for helping students meet their academic goals");
 
         jButtonCalculateGPA.setBackground(new java.awt.Color(255, 153, 102));
         jButtonCalculateGPA.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
@@ -133,7 +134,7 @@ public class MenuScreen extends javax.swing.JFrame {
 
     private void jButtonCalculateFinalGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateFinalGradeActionPerformed
         this.dispose();
-        new FinalGradeView().setVisible(true);
+        new FinalGradeView(controller).setVisible(true);
     }//GEN-LAST:event_jButtonCalculateFinalGradeActionPerformed
 
     /**
