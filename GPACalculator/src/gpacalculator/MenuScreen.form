@@ -52,7 +52,7 @@
                       </Group>
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
@@ -100,7 +100,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Console" size="11" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="A tool for helping students meet their academic goals"/>
+            <Property name="text" type="java.lang.String" value="A tool to help students meet their academic goals"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCalculateGPA">
@@ -115,6 +115,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Calculate GPA"/>
+            <Property name="toolTipText" type="java.lang.String" value="Determine your GPA by inputting your grades"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCalculateGPAActionPerformed"/>
@@ -132,6 +133,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Calculate Final Grade"/>
+            <Property name="toolTipText" type="java.lang.String" value="Determine the grade you need on your final to achieve a certain grade"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCalculateFinalGradeActionPerformed"/>

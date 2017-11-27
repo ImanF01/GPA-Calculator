@@ -83,9 +83,9 @@ public class GPAView extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroupWeight = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPaneGrades = new javax.swing.JScrollPane();
         jTableGrades = new javax.swing.JTable();
-        jLabelWeightOption = new javax.swing.JLabel();
         jRadioButtonUnweighted = new javax.swing.JRadioButton();
         jRadioButtonWeighted = new javax.swing.JRadioButton();
         jButtonAdd = new javax.swing.JButton();
@@ -93,22 +93,27 @@ public class GPAView extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jLabelTotalGPA = new javax.swing.JLabel();
         jButtonHome = new javax.swing.JButton();
+        jButtonHelp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setBackground(new java.awt.Color(208, 214, 232));
+
         jScrollPaneGrades.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPaneGrades.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPaneGrades.setFont(new java.awt.Font("Lucida Console", 0, 12)); // NOI18N
 
+        jTableGrades.setBackground(new java.awt.Color(208, 214, 232));
+        jTableGrades.setFont(new java.awt.Font("Lucida Console", 0, 12)); // NOI18N
         jTableGrades.setModel(controller.getGPATable());
         jTableGrades.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableGrades.setShowVerticalLines(false);
         jTableGrades.getTableHeader().setReorderingAllowed(false);
         jScrollPaneGrades.setViewportView(jTableGrades);
 
-        jLabelWeightOption.setText("Grade Weight:");
-
+        jRadioButtonUnweighted.setBackground(new java.awt.Color(208, 214, 232));
         buttonGroupWeight.add(jRadioButtonUnweighted);
-        jRadioButtonUnweighted.setSelected(true);
+        jRadioButtonUnweighted.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         jRadioButtonUnweighted.setText("Unweighted");
         jRadioButtonUnweighted.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -116,7 +121,9 @@ public class GPAView extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonWeighted.setBackground(new java.awt.Color(208, 214, 232));
         buttonGroupWeight.add(jRadioButtonWeighted);
+        jRadioButtonWeighted.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
         jRadioButtonWeighted.setText("Weighted");
         jRadioButtonWeighted.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -124,20 +131,31 @@ public class GPAView extends javax.swing.JFrame {
             }
         });
 
-        jButtonAdd.setText("Add Grade");
+        jButtonAdd.setBackground(new java.awt.Color(255, 153, 102));
+        jButtonAdd.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        jButtonAdd.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAdd.setText("+");
+        jButtonAdd.setToolTipText("Add a grade");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddActionPerformed(evt);
             }
         });
 
-        jButtonRemove.setText("Remove Grade");
+        jButtonRemove.setBackground(new java.awt.Color(255, 153, 102));
+        jButtonRemove.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        jButtonRemove.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRemove.setText("-");
+        jButtonRemove.setToolTipText("Remove a grade");
         jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRemoveActionPerformed(evt);
             }
         });
 
+        jButtonClear.setBackground(new java.awt.Color(255, 153, 102));
+        jButtonClear.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
+        jButtonClear.setForeground(new java.awt.Color(255, 255, 255));
         jButtonClear.setText("Clear All");
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,66 +163,86 @@ public class GPAView extends javax.swing.JFrame {
             }
         });
 
+        jLabelTotalGPA.setFont(new java.awt.Font("Lucida Console", 0, 16)); // NOI18N
         jLabelTotalGPA.setText("Total GPA:  NaN");
 
-        jButtonHome.setText("Home");
+        jButtonHome.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iman\\Downloads\\icons8-home-50.png")); // NOI18N
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
             }
         });
 
+        jButtonHelp.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonHelp.setFont(new java.awt.Font("Lucida Console", 1, 18)); // NOI18N
+        jButtonHelp.setText("?");
+        jButtonHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHelpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jRadioButtonUnweighted)
+                        .addGap(10, 10, 10)
+                        .addComponent(jRadioButtonWeighted))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPaneGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jButtonAdd)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jButtonRemove)
+                            .addGap(10, 10, 10)
+                            .addComponent(jButtonClear)
+                            .addGap(169, 169, 169)
+                            .addComponent(jLabelTotalGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButtonHelp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonHome, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonUnweighted)
+                    .addComponent(jRadioButtonWeighted))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPaneGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTotalGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonAdd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonRemove)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonClear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelTotalGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPaneGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelWeightOption)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButtonUnweighted)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButtonWeighted)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonHome)
-                        .addGap(35, 35, 35))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelWeightOption)
-                            .addComponent(jRadioButtonUnweighted)
-                            .addComponent(jRadioButtonWeighted)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonHome)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPaneGrades, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAdd)
-                    .addComponent(jButtonRemove)
-                    .addComponent(jButtonClear)
-                    .addComponent(jLabelTotalGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(196, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -276,15 +314,20 @@ public class GPAView extends javax.swing.JFrame {
         new MenuScreen(controller).setVisible(true); 
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
+    private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
+        JOptionPane.showMessageDialog(this, "Double click cell to edit class\nClick cell to edit letter grade");
+    }//GEN-LAST:event_jButtonHelpActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupWeight;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClear;
+    private javax.swing.JButton jButtonHelp;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JLabel jLabelTotalGPA;
-    private javax.swing.JLabel jLabelWeightOption;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButtonUnweighted;
     private javax.swing.JRadioButton jRadioButtonWeighted;
     private javax.swing.JScrollPane jScrollPaneGrades;

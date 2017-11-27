@@ -47,13 +47,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonHelp" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButtonHome" min="-2" pref="62" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="jLabelDesiredGrade" min="-2" max="-2" attributes="0"/>
@@ -70,21 +72,26 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelGradeNeeded" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonCalculate" min="-2" pref="237" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabelGradeNeeded" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="93" max="32767" attributes="0"/>
+                  <EmptySpace pref="123" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                  <Component id="jButtonCalculate" min="-2" pref="237" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jButtonHome" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jButtonHome" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="jButtonHelp" min="-2" pref="33" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelCurrentGrade" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldCurrentGrade" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -114,6 +121,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Console" size="16" style="0"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCurrentGradeActionPerformed"/>
@@ -125,6 +133,7 @@
               <Font name="Lucida Console" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Final Weight:"/>
+            <Property name="toolTipText" type="java.lang.String" value="Insert weight your final is of your grade (e.g. 10)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldDesiredGrade">
@@ -143,6 +152,7 @@
               <Font name="Lucida Console" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Desired Grade:"/>
+            <Property name="toolTipText" type="java.lang.String" value="Insert grade you want (e.g. 90)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCurrentGrade">
@@ -154,6 +164,7 @@
               <Font name="Lucida Console" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Current Grade:"/>
+            <Property name="toolTipText" type="java.lang.String" value="Insert current grade (e.g. 89.5)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCalculate">
@@ -196,9 +207,26 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\Iman\Downloads\icons8-home-50.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHomeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonHelp">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Console" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="?"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHelpActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

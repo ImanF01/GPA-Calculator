@@ -53,12 +53,13 @@ public class MenuScreen extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Lucida Console", 0, 11)); // NOI18N
-        jLabel2.setText("A tool for helping students meet their academic goals");
+        jLabel2.setText("A tool to help students meet their academic goals");
 
         jButtonCalculateGPA.setBackground(new java.awt.Color(255, 153, 102));
         jButtonCalculateGPA.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         jButtonCalculateGPA.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCalculateGPA.setText("Calculate GPA");
+        jButtonCalculateGPA.setToolTipText("Determine your GPA by inputting your grades");
         jButtonCalculateGPA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCalculateGPAActionPerformed(evt);
@@ -69,6 +70,7 @@ public class MenuScreen extends javax.swing.JFrame {
         jButtonCalculateFinalGrade.setFont(new java.awt.Font("Lucida Console", 0, 18)); // NOI18N
         jButtonCalculateFinalGrade.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCalculateFinalGrade.setText("Calculate Final Grade");
+        jButtonCalculateFinalGrade.setToolTipText("Determine the grade you need on your final to achieve a certain grade");
         jButtonCalculateFinalGrade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCalculateFinalGradeActionPerformed(evt);
@@ -86,7 +88,7 @@ public class MenuScreen extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addComponent(jLabel1))
                     .addComponent(jLabel2))
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 51, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
