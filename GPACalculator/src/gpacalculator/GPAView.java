@@ -315,7 +315,7 @@ public class GPAView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
-        JOptionPane.showMessageDialog(this, "Double click cell to edit class\nClick cell to edit letter grade");
+        JOptionPane.showMessageDialog(this, "Double click cell to edit class name\nClick cell to edit letter grade");
     }//GEN-LAST:event_jButtonHelpActionPerformed
 
 
