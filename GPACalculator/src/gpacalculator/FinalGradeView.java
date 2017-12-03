@@ -221,7 +221,7 @@ public class FinalGradeView extends javax.swing.JFrame {
             System.out.print(grade);
 
             // Update display
-            jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f%", grade * 100));
+            jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f%%", grade * 100));
         } catch (Exception e) {
             // Inform user of invalid inputs   
             System.err.println(e.getMessage());
