@@ -18,6 +18,7 @@ public class GPAController {
         new MenuScreen(this).setVisible(true);
     }
     
+    // Get persistent table model (data)
     public GPATableModel getGPATable() {
         return gpaTable;
     }
@@ -49,7 +50,7 @@ public class GPAController {
         return false;
     }
     
-    public void addGrade(String className, String letterGrade, boolean isHonors) {
+    public void addGrade(String className, String letterGrade, Boolean isHonors) {
         try {
             gpaTable.addGrade(className, letterGrade, isHonors);
         } catch (Exception e) {
@@ -57,13 +58,15 @@ public class GPAController {
         }
     }
     
-    public void editGradeAt(int row, String className, String letterGrade, boolean isHonors) {
+    // Deprecated method
+    /*
+    public void editGradeAt(int row, String className, String letterGrade, Boolean isHonors) {
         try {
             gpaTable.editGradeAt(row, className, letterGrade, isHonors);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
-    }
+    }*/
     
     public void removeGrade(int row) {
         try {

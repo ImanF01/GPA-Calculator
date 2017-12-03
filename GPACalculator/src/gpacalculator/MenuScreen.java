@@ -127,16 +127,13 @@ public class MenuScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Proceeds to GPA Calculator
     private void jButtonCalculateGPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateGPAActionPerformed
         this.dispose();
         new GPAView(controller).setVisible(true);
-        
-        /*
-        Uncomment if you want to take a look
-        new GPAview().setVisible(true);
-        */
     }//GEN-LAST:event_jButtonCalculateGPAActionPerformed
 
+    // Proceeds to Final Grade Calculator
     private void jButtonCalculateFinalGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalculateFinalGradeActionPerformed
         this.dispose();
         new FinalGradeView(controller).setVisible(true);

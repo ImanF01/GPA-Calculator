@@ -206,17 +206,24 @@ public class FinalGradeView extends javax.swing.JFrame {
         double dGrade, cGrade, fWeight;
         
         try {
+            // Attempt to take user Input
             dGrade = Double.parseDouble(desiredGrade) / 100.0;
             cGrade = Double.parseDouble(currentGrade) / 100.0;
-            fWeight = Double.parseDouble(finalWeight) / 100.0;
+            fWeight = Double.parseDouble(finalWeight) / 100.0;    
+            
+            // Calculate final grade required
+            double grade = (dGrade - ((1-fWeight) * cGrade) ) / fWeight;
+            
+            // Debug Messages
             System.out.println(dGrade);
             System.out.println(cGrade);
             System.out.println(fWeight);
-            double grade = (dGrade - ((1-fWeight) * cGrade) ) / fWeight;
             System.out.print(grade);
 
-            jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f", grade * 100));
+            // Update display
+            jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f%", grade * 100));
         } catch (Exception e) {
+            // Inform user of invalid inputs   
             System.err.println(e.getMessage());
             JOptionPane.showMessageDialog(this, String.format("Invalid input in the following fields:%n%n%s%s%s",
                     desiredGrade.isEmpty() || Pattern.matches("[a-zA-z]+", desiredGrade) ? "Desired Grade\n" : "",

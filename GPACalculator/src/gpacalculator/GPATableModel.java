@@ -97,11 +97,13 @@ public class GPATableModel extends AbstractTableModel{
         return false;
     }
     
+    // Sets the grading scale
     public void setWeightedStatus(boolean isWeighted) {
         this.isWeighted = isWeighted;
         fireTableDataChanged();
     }
     
+    // Gets the current grading scale
     public boolean getWeightedStatus() {
         return isWeighted;
     }
@@ -159,6 +161,8 @@ public class GPATableModel extends AbstractTableModel{
         fireTableDataChanged();
     }
     
+    // Deprecated Method
+    /*
     public void editGradeAt(int row, String className, String letterGrde, Boolean isHonors) {
         if (row < 0 || row > grades.size())
             throw new IllegalArgumentException("Row out of bounds");
@@ -168,7 +172,7 @@ public class GPATableModel extends AbstractTableModel{
         grade.setLetterGrade(letterGrde);
         grade.setHonors(isHonors);
         fireTableDataChanged();
-    }
+    }*/
     
     public void clearData() {
         grades.clear();

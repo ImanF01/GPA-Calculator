@@ -291,7 +291,7 @@ public class GPAView extends javax.swing.JFrame {
         
         // Add grade if user confirms
         if (i == JOptionPane.OK_OPTION)
-            controller.addGrade(jTextFieldClass.getText(), jComboBoxGrade.getItemAt(jComboBoxGrade.getSelectedIndex()).toString(), jCheckBoxHonors.isSelected());
+            controller.addGrade(jTextFieldClass.getText(), jComboBoxGrade.getItemAt(jComboBoxGrade.getSelectedIndex()).toString(), new Boolean(jCheckBoxHonors.isSelected()));
         
         // Scroll to bottom to make new grade visible
         jTableGrades.scrollRectToVisible(jTableGrades.getCellRect(jTableGrades.getRowCount() - 1, 0, true));
@@ -318,7 +318,7 @@ public class GPAView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
-        JOptionPane.showMessageDialog(this, "Double click cell to edit class name\nClick cell to edit letter grade");
+        JOptionPane.showMessageDialog(this, "Double click cell to edit class name\nClick cell to edit letter grade", "Help", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonHelpActionPerformed
 
 
