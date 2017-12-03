@@ -22,3 +22,7 @@
 hs_err_pid*
 /GPACalculator/build/
 *.xml
+GPACalculator/nbproject/private/private.xml
+GPACalculator/nbproject/private/private.properties
+GPACalculator/nbproject/private/private.xml
+GPACalculator/nbproject/private/private.properties

@@ -38,17 +38,17 @@ public class Grade {
     
     // Default Constructor (should only be called for testing purposes)
     public Grade() {
-        this("Unspecified Class", A_PLUS, false);
+        this("Unspecified Class", A_PLUS, new Boolean(false));
     }
     
     // Minumum argument Constructor (minimum information required from user to create a useful object)
     public Grade(String letterGrade) {
-        this("Unspecified Class", letterGrade, false);
+        this("Unspecified Class", letterGrade, new Boolean(false));
     }
     
     // Constructor that allows user to specify class name for organization
     public Grade(String className, String letterGrade) {
-        this(className, letterGrade, false);
+        this(className, letterGrade, new Boolean(false));
     }
     
     // Constructor that allows user to specifiy whether a course is honors and affected by weighted GPA
@@ -99,7 +99,7 @@ public class Grade {
         gradePoint = 4 - Arrays.asList(LETTER_GRADES).indexOf(letterGrade) / 3;
     }
     
-    // Gets gradePoint
+    // Gets base gradePoint
     public double getGradePoint() {
         return gradePoint;
     }

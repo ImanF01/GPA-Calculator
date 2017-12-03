@@ -134,14 +134,14 @@ public class GPATableModel extends AbstractTableModel{
         return getWeightedStatus() && getHonorsAt(row) ? getGradeAt(row).getGradePoint() + 1 : getGradeAt(row).getGradePoint();
     }
     
-    public boolean getHonorsAt(int row) {
+    public Boolean getHonorsAt(int row) {
         if (row < 0 || row > grades.size())
             throw new IllegalArgumentException("Row out of bounds");
         
         return getGradeAt(row).getHonors();
     }
     
-    public void addGrade(String className, String letterGrade, boolean isHonors) {
+    public void addGrade(String className, String letterGrade, Boolean isHonors) {
         if (className.isEmpty()) {
             grades.add(new Grade(letterGrade, isHonors));
         }
@@ -159,7 +159,7 @@ public class GPATableModel extends AbstractTableModel{
         fireTableDataChanged();
     }
     
-    public void editGradeAt(int row, String className, String letterGrde, boolean isHonors) {
+    public void editGradeAt(int row, String className, String letterGrde, Boolean isHonors) {
         if (row < 0 || row > grades.size())
             throw new IllegalArgumentException("Row out of bounds");
         

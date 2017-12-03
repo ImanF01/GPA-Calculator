@@ -26,7 +26,7 @@ public class GPAController {
         try {
             return gpaTable.getClassNameAt(row);
         } catch (Exception e) {
-            System.out.println("GPAController.getClassNameAt(int row) : Invalid row entered");
+            System.err.println(e.getMessage());
         }
         return null;
     }
@@ -35,7 +35,7 @@ public class GPAController {
         try {
             return gpaTable.getLetterGradeAt(row);
         } catch (Exception e) {
-            System.out.println("GPAController.getLetterGradeAt(int row) : Invalid row entered");
+            System.err.println(e.getMessage());
         }
         return null;
     }
@@ -44,7 +44,7 @@ public class GPAController {
         try {
             return gpaTable.getHonorsAt(row);
         } catch (Exception e) {
-            System.out.println("GPAController.getHonorsAt(int row) : Invalid row entered");
+            System.err.println(e.getMessage());
         }
         return false;
     }
@@ -53,7 +53,7 @@ public class GPAController {
         try {
             gpaTable.addGrade(className, letterGrade, isHonors);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
     
@@ -61,7 +61,7 @@ public class GPAController {
         try {
             gpaTable.editGradeAt(row, className, letterGrade, isHonors);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
     
@@ -69,7 +69,7 @@ public class GPAController {
         try {
             gpaTable.removeGradeAt(row);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
     
@@ -77,7 +77,7 @@ public class GPAController {
         try {
             gpaTable.setWeightedStatus(isWeighted);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
     
@@ -85,7 +85,7 @@ public class GPAController {
         try {
             gpaTable.clearData();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
     
@@ -93,7 +93,7 @@ public class GPAController {
         try {
             return gpaTable.calculateGPA();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
         return -1;
     }

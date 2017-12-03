@@ -5,6 +5,8 @@
  */
 package gpacalculator;
 
+import java.util.InputMismatchException;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,6 +54,8 @@ public class FinalGradeView extends javax.swing.JFrame {
         jButtonHelp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle(GPACalculator.APPLICATION_NAME + " " + GPACalculator.VERSION_NUMBER);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(208, 214, 232));
         jPanel1.setPreferredSize(new java.awt.Dimension(419, 360));
@@ -105,7 +109,6 @@ public class FinalGradeView extends javax.swing.JFrame {
         jLabelGradeNeeded.setText("Final Grade Needed: ");
 
         jButtonHome.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iman\\Downloads\\icons8-home-50.png")); // NOI18N
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
@@ -136,23 +139,20 @@ public class FinalGradeView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCalculate, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabelDesiredGrade)
-                                        .addComponent(jLabelCurrentGrade))
-                                    .addComponent(jLabelFinalWeight))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldDesiredGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCurrentGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldFinalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabelGradeNeeded)))
-                        .addGap(19, 19, 19)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabelDesiredGrade)
+                                .addComponent(jLabelCurrentGrade))
+                            .addComponent(jLabelFinalWeight))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldDesiredGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldCurrentGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldFinalWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabelGradeNeeded)))
                 .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -203,11 +203,12 @@ public class FinalGradeView extends javax.swing.JFrame {
         String desiredGrade = jTextFieldDesiredGrade.getText();
         String currentGrade = jTextFieldCurrentGrade.getText();
         String finalWeight = jTextFieldFinalWeight.getText();
+        double dGrade, cGrade, fWeight;
         
         try {
-            double dGrade = Double.parseDouble(desiredGrade) / 100.0;
-            double cGrade = Double.parseDouble(currentGrade) / 100.0;
-            double fWeight = Double.parseDouble(finalWeight) / 100.0;
+            dGrade = Double.parseDouble(desiredGrade) / 100.0;
+            cGrade = Double.parseDouble(currentGrade) / 100.0;
+            fWeight = Double.parseDouble(finalWeight) / 100.0;
             System.out.println(dGrade);
             System.out.println(cGrade);
             System.out.println(fWeight);
@@ -216,14 +217,15 @@ public class FinalGradeView extends javax.swing.JFrame {
 
             jLabelGradeNeeded.setText(String.format("Final Grade Needed: %.2f", grade * 100));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(this, String.format("Missing the following fields:%n%n%s%s%s",
-                    desiredGrade.isEmpty() ? "Desired Grade\n" : "",
-                    currentGrade.isEmpty() ? "Current Grade\n" : "",
-                    finalWeight.isEmpty() ? "Final Weight\n" : ""
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, String.format("Invalid input in the following fields:%n%n%s%s%s",
+                    desiredGrade.isEmpty() || Pattern.matches("[a-zA-z]+", desiredGrade) ? "Desired Grade\n" : "",
+                    currentGrade.isEmpty() || Pattern.matches("[a-zA-z]+", currentGrade) ? "Current Grade\n" : "",
+                    finalWeight.isEmpty() || Pattern.matches("[a-zA-z]+", finalWeight) ? "Final Weight\n" : ""
                     )
-                , "Missing Input", JOptionPane.INFORMATION_MESSAGE);
+                , "Invalid Input", JOptionPane.INFORMATION_MESSAGE);
         }
+        
     }//GEN-LAST:event_jButtonCalculateActionPerformed
 
     private void jTextFieldFinalWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFinalWeightActionPerformed
@@ -243,41 +245,6 @@ public class FinalGradeView extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(this, "Current Grade: Insert current grade (e.g. 89.5)\nDesired Grade: Insert grade you want (e.g. 90)"
                + "\nFinal Weight: Insert weight your final is of your grade (e.g. 10)");
     }//GEN-LAST:event_jButtonHelpActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FinalGradeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FinalGradeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FinalGradeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FinalGradeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FinalGradeView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCalculate;
