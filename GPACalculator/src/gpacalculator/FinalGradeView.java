@@ -226,9 +226,9 @@ public class FinalGradeView extends javax.swing.JFrame {
             // Inform user of invalid inputs   
             System.err.println(e.getMessage());
             JOptionPane.showMessageDialog(this, String.format("Invalid input in the following fields:%n%n%s%s%s",
-                    desiredGrade.isEmpty() || Pattern.matches("[a-zA-z]+", desiredGrade) ? "Desired Grade\n" : "",
-                    currentGrade.isEmpty() || Pattern.matches("[a-zA-z]+", currentGrade) ? "Current Grade\n" : "",
-                    finalWeight.isEmpty() || Pattern.matches("[a-zA-z]+", finalWeight) ? "Final Weight\n" : ""
+                    desiredGrade.isEmpty() || !desiredGrade.matches("\\d*\\.?\\d+") ? "Desired Grade\n" : "",
+                    currentGrade.isEmpty() || !currentGrade.matches("\\d*\\.?\\d+") ? "Current Grade\n" : "",
+                    finalWeight.isEmpty() || !finalWeight.matches("\\d*\\.?\\d+") ? "Final Weight\n" : ""
                     )
                 , "Invalid Input", JOptionPane.INFORMATION_MESSAGE);
         }
