@@ -109,7 +109,7 @@ public class FinalGradeView extends javax.swing.JFrame {
         jLabelGradeNeeded.setText("Final Grade Needed: ");
 
         jButtonHome.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonHome.setIcon(new javax.swing.ImageIcon("C:\\Users\\Iman\\Downloads\\icons8-home-50.png")); // NOI18N
+        jButtonHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gpacalculator/icons8-home-50.png"))); // NOI18N
         jButtonHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonHomeActionPerformed(evt);
