@@ -91,10 +91,9 @@ public class GPATableModel extends AbstractTableModel{
             case 1:
             case 3: 
                 return true;
-            case 4:
+            default:
                 return false;
         }
-        return false;
     }
     
     // Sets the grading scale
