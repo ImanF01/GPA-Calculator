@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 public class GPACalculator {
     
     public static String APPLICATION_NAME = "Grade Tracker";
-    public static String VERSION_NUMBER = "1.0.0";
+    public static String VERSION_NUMBER = "1.2.5";
     
     public static void main(String[] args) 
     {
