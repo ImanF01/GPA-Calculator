@@ -54,7 +54,7 @@ public class FinalGradeView extends javax.swing.JFrame {
         jButtonHelp = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle(GPACalculator.APPLICATION_NAME + " " + GPACalculator.VERSION_NUMBER);
+        setTitle(GPACalculator.APPLICATION_NAME + " v" + GPACalculator.VERSION_NUMBER);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(208, 214, 232));
