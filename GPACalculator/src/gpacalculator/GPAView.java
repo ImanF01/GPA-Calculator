@@ -40,6 +40,13 @@ public class GPAView extends javax.swing.JFrame {
         // Initialize JComponents
         initComponents();
         
+        // Set grading scale to unweighted by default
+        jRadioButtonUnweighted.setSelected(true);
+        controller.setWeightedStatus(false);
+        
+        // Calcaulate GPA if data exists when opening calculator
+        updateGPA();
+        
         // Format columns of jTableGrades
         jTableGrades.getColumnModel().getColumn(0).setResizable(false);
         jTableGrades.getColumnModel().getColumn(0).setMinWidth(jTableGrades.getWidth() / 2);
@@ -116,7 +123,6 @@ public class GPAView extends javax.swing.JFrame {
         jRadioButtonUnweighted.setBackground(new java.awt.Color(208, 214, 232));
         buttonGroupWeight.add(jRadioButtonUnweighted);
         jRadioButtonUnweighted.setFont(new java.awt.Font("Lucida Console", 0, 14)); // NOI18N
-        jRadioButtonUnweighted.setSelected(true);
         jRadioButtonUnweighted.setText("Unweighted");
         jRadioButtonUnweighted.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
